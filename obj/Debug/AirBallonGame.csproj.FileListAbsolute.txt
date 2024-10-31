@@ -1,9 +1,0 @@
-C:\Users\HowPC\Desktop\AirBallonGame\bin\Debug\AirBallonGame.exe
-C:\Users\HowPC\Desktop\AirBallonGame\bin\Debug\AirBallonGame.pdb
-C:\Users\HowPC\Desktop\AirBallonGame\obj\Debug\AirBallonGame.csproj.AssemblyReference.cache
-C:\Users\HowPC\Desktop\AirBallonGame\obj\Debug\AirBallonGame.Form1.resources
-C:\Users\HowPC\Desktop\AirBallonGame\obj\Debug\AirBallonGame.Properties.Resources.resources
-C:\Users\HowPC\Desktop\AirBallonGame\obj\Debug\AirBallonGame.csproj.GenerateResource.cache
-C:\Users\HowPC\Desktop\AirBallonGame\obj\Debug\AirBallonGame.csproj.CoreCompileInputs.cache
-C:\Users\HowPC\Desktop\AirBallonGame\obj\Debug\AirBallonGame.exe
-C:\Users\HowPC\Desktop\AirBallonGame\obj\Debug\AirBallonGame.pdb
