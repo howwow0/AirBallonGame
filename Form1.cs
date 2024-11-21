@@ -11,8 +11,9 @@ namespace AirBallonGame
             InitializeComponent();
         }
 
-        private bool _isGameRunning = false;
+        private bool _isGameRunning;
         private readonly Random _random = new Random(DateTime.Now.Millisecond);
+        private readonly Font _fontLabels = new Font("Comic Sans MS", 18);
         private const string KeysFirstPlayer = "QWERTASDFZXCV";
         private const string KeysSecondPlayer = "YUIOPGHJKLBNM";
         private const string TextWinFirstPlayer = "Выйграл первый игрок.";
@@ -20,12 +21,11 @@ namespace AirBallonGame
         private const string TextGameOver = "Игра окончена.";
         private const string TextStartGame = "Старт игры";
         private const string TextReadyToGame = "Вы готовы начать игру?";
-        private const int MillisecondsForClick = 1500; // Время на нажатие кнопки
+        private const int MillisecondsForClick = 1500; // Время на нажатие кнопки в миллисекундах
         private const int StepAirBallons = 15; // Количество пикселей на которое прыгает шар
-        private const int StartHeight = 300; // Стартовая высота шаров
-
         private string _generatedKeyFirstPlayer = string.Empty;
         private string _generatedKeySecondPlayer = string.Empty;
+        
 
         private void GenerateKey(bool isFirstPlayer)
         {
@@ -65,17 +65,16 @@ namespace AirBallonGame
                 GameOver(winFirstPlayer);
             }
         }
-
+        
         private void GameOver(bool winFirstPlayer)
         {
-            _isGameRunning = false;
+            _isGameRunning = false; 
             timer1.Stop();
             timer2.Stop();
-            string gameOverText =
-                $"{TextGameOver} {(winFirstPlayer ? TextWinFirstPlayer : TextWinSecondPlayer)} {TextReadyToGame}";
+            var gameOverText = TextGameOver + " " + (winFirstPlayer ? TextWinFirstPlayer : TextWinSecondPlayer) + " " +
+                               TextReadyToGame;
             DialogResult result = MessageBox.Show(gameOverText, TextGameOver, MessageBoxButtons.YesNo,
                 MessageBoxIcon.Question);
-
             if (result == DialogResult.Yes)
             {
                 StartGame();
@@ -89,14 +88,21 @@ namespace AirBallonGame
         private void StartGame()
         {
             _isGameRunning = true;
-            pictureBox3.Location = new Point(pictureBox3.Location.X, StartHeight);
-            pictureBox3.BackColor = Color.Transparent;
-            pictureBox4.Location = new Point(pictureBox4.Location.X, StartHeight);
-            pictureBox4.BackColor = Color.Transparent;
+            InitLabels();
             GenerateKey(true);
             GenerateKey(false);
             ResetTimer(timer1);
             ResetTimer(timer2);
+        }
+
+        private void InitLabels()
+        {
+            label1.Location = new Point(12, 12);
+            label1.Font = new Font("Comic Sans MS", 18);
+            label1.Text = "A";
+            label2.Location = new Point(539, 12);
+            label2.Font = _fontLabels;
+            label2.Text = "B";
         }
 
         private void ResetTimer(Timer timer)
